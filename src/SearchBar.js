@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import './SearchBar.css';
 
 class SearchBar extends Component {
   constructor(props){
@@ -23,7 +24,7 @@ class SearchBar extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form className="SearchBar" onSubmit={this.handleSubmit}>
         <input 
           type="text" 
           name="searchTerm" 
