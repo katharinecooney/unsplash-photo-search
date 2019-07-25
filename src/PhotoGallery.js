@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import SearchBar from './SearchBar';
+import Masonry from 'react-masonry-component';
+
+const style = {
+  margin: '20px'
+};
 
 class PhotoGallery extends Component {
   constructor(props){
@@ -38,10 +43,13 @@ class PhotoGallery extends Component {
       <div>
         <h1>Photo Gallery</h1>
         <SearchBar handleSearch={this.handleSearch}/>
+        <Masonry>
         {this.state.images.map(image => 
-          <img key={image.id} src={image.urls.full} />
+          <img style={style} key={image.id} src={image.urls.small} />
         )} 
-        {/* {this.state.searchTerm} */}
+        </Masonry>
+        
+        
       </div>
     )
   }

@@ -2,7 +2,6 @@
   text-align: center;
 }
 
-img {
-  width: 300px;
-  height: auto;
+.PhotoGallery-photoContainer > img {
+  margin: 20px;
 }
