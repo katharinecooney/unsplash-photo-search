@@ -6,11 +6,6 @@ import './PhotoGallery.css';
 import chevron from './up-chevron.png';
 import SmoothScrolling from "./smoothScrolling";
 
-
-const imgStyle = {
-  margin: '8px'
-};
-
 class PhotoGallery extends Component {
   constructor(props){
     super(props);
@@ -59,7 +54,7 @@ class PhotoGallery extends Component {
         <SearchBar handleSearch={this.handleSearch}/>
         <Masonry className="PhotoGallery-container" options={{fitWidth: true}}>
           {this.state.images.map(image => 
-          <img style={imgStyle} key={image.id} src={image.urls.small} />
+          <img style={{margin: '15px'}}className="PhotoGallery-image" key={image.id} src={image.urls.small} />
           )} 
           {this.state.hasLoadedImages && <div className="PhotoGallery-scroll">
             <a href="#top" onClick={this.scrollUp}>
