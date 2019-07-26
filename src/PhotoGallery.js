@@ -50,11 +50,14 @@ class PhotoGallery extends Component {
   render() {
     return (
       <div className="PhotoGallery" id="begin">
-        <h1 id="top">Photo Gallery</h1>
-        <SearchBar handleSearch={this.handleSearch}/>
+        <div className="PhotoGallery-title">
+          <h1 id="top">Photo Gallery</h1>
+          <SearchBar handleSearch={this.handleSearch}/>
+        </div>
+        
         <Masonry className="PhotoGallery-container" options={{fitWidth: true}}>
           {this.state.images.map(image => 
-          <img style={{margin: '15px'}}className="PhotoGallery-image" key={image.id} src={image.urls.small} />
+          <img style={{margin: '10px', width: '390px'}} className="PhotoGallery-image" key={image.id} src={image.urls.small} />
           )} 
           {this.state.hasLoadedImages && <div className="PhotoGallery-scroll">
             <a href="#top" onClick={this.scrollUp}>

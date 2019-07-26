@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './SearchBar.css';
+import search from './loupe.png';
 
 class SearchBar extends Component {
   constructor(props){
@@ -32,7 +33,7 @@ class SearchBar extends Component {
           value={this.state.searchTerm} 
           onChange={this.handleSearch}
         />
-        <button type="submit">Submit</button>
+        <button className="SearchBar-button" type="submit"><img src={search} alt=""/></button>
       </form>
     )
   }

@@ -1,6 +1,14 @@
+.SearchBar {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  height: 45px;
+  /* margin-bottom: 30px; */
+  
+}
+
 .SearchBar input {
   width: 60vw;
-  /* height: 30px; */
   text-align: center;
   font-family: 'Darker Grotesque', sans-serif;
   font-size: 2rem;
@@ -8,4 +16,16 @@
   outline: none;
   border-radius: 10px;
   background-color : white;
+}
+
+.SearchBar-button {
+  margin-left: 10px;
+  border-radius: 10px;
+  border: 1px solid rgb(179, 176, 176);
+  outline: none;
+}
+
+.SearchBar-button img {
+  height: 1.5rem;
+  padding: .25rem;
 }
