@@ -4,6 +4,8 @@ import SearchBar from './SearchBar';
 import Masonry from 'react-masonry-component';
 import './PhotoGallery.css';
 import chevron from './up-chevron.png';
+import SmoothScrolling from "./smoothScrolling";
+
 
 const imgStyle = {
   margin: '8px'
@@ -19,6 +21,11 @@ class PhotoGallery extends Component {
     }
     this.handleSearch = this.handleSearch.bind(this);
     this.getImages = this.getImages.bind(this);
+    this.scrollUp = this.scrollUp.bind(this);
+  }
+
+  scrollUp() {
+    SmoothScrolling.scrollTo("begin");
   }
 
   componentDidMount(){
@@ -43,16 +50,23 @@ class PhotoGallery extends Component {
     }))
   }
 
+
+
   render() {
     return (
-      <div className="PhotoGallery">
-        <h1>Photo Gallery</h1>
+      <div className="PhotoGallery" id="begin">
+        <h1 id="top">Photo Gallery</h1>
         <SearchBar handleSearch={this.handleSearch}/>
         <Masonry className="PhotoGallery-container" options={{fitWidth: true}}>
           {this.state.images.map(image => 
           <img style={imgStyle} key={image.id} src={image.urls.small} />
           )} 
-          {this.state.hasLoadedImages && <div className="PhotoGallery-scroll"><img src={chevron}></img></div>}
+          {this.state.hasLoadedImages && <div className="PhotoGallery-scroll">
+            <a href="#top" onClick={this.scrollUp}>
+            <img  src={chevron}></img>
+            </a>
+            
+            </div>} 
           
         </Masonry>
       </div>
