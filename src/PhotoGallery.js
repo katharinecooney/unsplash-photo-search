@@ -5,6 +5,7 @@ import Masonry from 'react-masonry-component';
 import './PhotoGallery.css';
 import chevron from './up-chevron.png';
 import SmoothScrolling from "./smoothScrolling";
+import Photo from './Photo';
 
 class PhotoGallery extends Component {
   constructor(props){
@@ -55,18 +56,22 @@ class PhotoGallery extends Component {
           <SearchBar handleSearch={this.handleSearch}/>
         </div>
         
-        <Masonry className="PhotoGallery-container" options={{fitWidth: true}}>
+        {/* <Masonry className="PhotoGallery-container" options={{fitWidth: true}}> */}
+
           {this.state.images.map(image => 
-          <img style={{margin: '10px', width: '390px'}} className="PhotoGallery-image" key={image.id} src={image.urls.small} />
+          <Photo key={image.id} image={image} />
           )} 
-          {this.state.hasLoadedImages && <div className="PhotoGallery-scroll">
-            <a href="#top" onClick={this.scrollUp}>
-            <img  src={chevron}></img>
-            </a>
-            
-            </div>} 
           
-        </Masonry>
+          {
+          this.state.hasLoadedImages && 
+          <div className="PhotoGallery-scroll">
+            <a href="#top" onClick={this.scrollUp}>
+            <img src={chevron} alt="scroll up arrow"></img>
+            </a>
+          </div>
+          } 
+          
+        {/* </Masonry> */}
       </div>
     )
   }

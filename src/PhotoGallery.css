@@ -1,8 +1,5 @@
-
 .PhotoGallery-container {
-	margin: 0 auto;
-	padding: 0.05px;
-	width: 95vw;
+	width: 100vw;
 }
 
 .PhotoGallery h1 {
@@ -22,23 +19,7 @@
 	border-radius: 0 0 10% 10%;
 }
 
-img.PhotoGallery-image {
-	transition: all 0.5s ease;
-}
-
-.PhotoGallery-image:hover {
-	transform: scale(1.03);
-	box-shadow: 4px 5px 11px 0px rgba(151,151,151,0.75);
--webkit-box-shadow: 4px 5px 11px 0px rgba(151,151,151,0.75);
--moz-box-shadow: 4px 5px 11px 0px rgba(151,151,151,0.75);
-
-}
-
 .PhotoGallery-scroll {
-  /* width: 390px;
-  height: 200px; 
-  /* border: 1px solid pink; */
-  
   display: flex;
   align-items: center;
   justify-content: center;
