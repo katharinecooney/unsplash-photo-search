@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import SearchBar from './SearchBar';
-import Masonry from 'react-masonry-component';
 import './PhotoGallery.css';
 import chevron from './up-chevron.png';
 import SmoothScrolling from "./smoothScrolling";
@@ -12,19 +11,18 @@ class PhotoGallery extends Component {
     super(props);
     this.state = {
       images: [],
+      hasUserSearched: false,
       searchTerm: '',
       savedPhotos: JSON.parse(window.localStorage.getItem("savedPhotos") || "[]"),
-      hasLoadedImages: false 
+      hasLoadedImages: false,
+      requestedSavedPhotos: false
     }
     this.savedPhotosCollection = new Set(this.state.savedPhotos.map(image => image.urls.small));
     this.handleSearch = this.handleSearch.bind(this);
     this.getImages = this.getImages.bind(this);
     this.scrollUp = this.scrollUp.bind(this);
     this.savePhoto = this.savePhoto.bind(this);
-  }
-
-  componentDidMount(){
-    console.log(this.state.savedPhotos)
+    this.retrieveSavedPhotos = this.retrieveSavedPhotos.bind(this);
   }
 
   scrollUp() {
@@ -33,7 +31,6 @@ class PhotoGallery extends Component {
 
   savePhoto(newPhoto){
     let savedPhotos = [];
-
     if (!this.savedPhotosCollection.has(newPhoto)) {
       savedPhotos.push(newPhoto);
       console.log(savedPhotos)
@@ -43,10 +40,11 @@ class PhotoGallery extends Component {
     }), () => window.localStorage.setItem("savedPhotos", JSON.stringify(this.state.savedPhotos)))
   }
 
-
   handleSearch(newTerm){
     this.setState({
-      searchTerm: newTerm
+      searchTerm: newTerm,
+      requestedSavedPhotos: false,
+      hasUserSearched: true
     }, () => this.getImages())
   }
   
@@ -58,21 +56,39 @@ class PhotoGallery extends Component {
     }))
   }
 
-
+  retrieveSavedPhotos(){
+    console.log('requested photos');
+    this.setState({
+      requestedSavedPhotos: true
+    })
+  }
 
   render() {
+    let displaySavedPhotos = (this.state.savedPhotos.map(image => <Photo saved={this.savedPhotosCollection.has(image.urls.small)} key={image.id} image={image} />))
+    let displaySearchedPhotos = (this.state.images.map(image => 
+      <Photo saved={this.savedPhotosCollection.has(image.urls.small)} savePhoto={this.savePhoto} key={image.id} image={image} />
+      ))
+    let noPhotosSearched = (<span>Search for a photo!</span>)
     return (
       <div className="PhotoGallery" id="begin">
+        
         <div className="PhotoGallery-title">
           <h1 id="top">Photo Gallery</h1>
           <SearchBar handleSearch={this.handleSearch}/>
         </div>
-        
-        {/* <Masonry className="PhotoGallery-container" options={{fitWidth: true}}> */}
 
-          {this.state.images.map(image => 
-          <Photo savePhoto={this.savePhoto} key={image.id} image={image} />
-          )} 
+        <button onClick={this.retrieveSavedPhotos}>Get saved photos</button>
+        {
+          !this.state.hasUserSearched && noPhotosSearched
+        }
+
+        {
+          this.state.requestedSavedPhotos && displaySavedPhotos
+        }
+
+        {
+          !this.state.requestedSavedPhotos && displaySearchedPhotos
+        } 
           
           {
           this.state.hasLoadedImages && 
