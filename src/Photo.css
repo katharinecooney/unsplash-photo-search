@@ -1,42 +1,20 @@
 .Photo-container {
-  width: 50vw;
-  height: auto;
-  display: flex;
+  position: relative;
+  width: 90%;
   margin: 0 auto;
 }
 
-.Photo {
-  width: 100%;
-	transition: all 0.5s ease;
+.Photo-container:hover .Photo-overlay {
+  opacity: 1;
 }
 
-.Photo img:hover {
-	transform: scale(1.03);
-	box-shadow: 4px 5px 11px 0px rgba(151,151,151,0.75);
-  -webkit-box-shadow: 4px 5px 11px 0px rgba(151,151,151,0.75);
-  -moz-box-shadow: 4px 5px 11px 0px rgba(151,151,151,0.75);
-}
-
-.Photo-saveBar {
-  height: 100%;
-  width: 100%;
-  background-color: rgba(233, 1, 109, 0.815);
-  position: relative;
-  /* bottom: 100px; */
-}
-
-.container {
-  position: relative;
-  width: 50%;
-}
-
-.image {
+.Photo-image {
   display: block;
   width: 100%;
   height: auto;
 }
 
-.overlay {
+.Photo-overlay {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -46,14 +24,10 @@
   width: 100%;
   opacity: 0;
   transition: .5s ease;
-  background-color: rgba(1, 19, 20, 0.568);
+  background-color: #008CBA;
 }
 
-.container:hover .overlay {
-  opacity: 1;
-}
-
-.text {
+.Photo-text {
   color: white;
   font-size: 20px;
   position: absolute;

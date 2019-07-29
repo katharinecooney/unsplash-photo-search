@@ -23,14 +23,18 @@ class Photo extends Component {
     })
   }
 
+  handleSave(){
+    this.props.savePhoto()
+  }
+
   render() {
     let {image} = this.props;
     return (
-      <div  onMouseLeave={this.handleExit} className="Photo-container container">
-        <img className="Photo image" src={image.urls.small} alt={image.alt_description}/>
-        {/* {this.state.isHovered && <div className="Photo-saveBar">ADD TO FAVORITES</div> } */}
-        <div className="Photo-saveBar overlay">
-          <div className="text">
+      <div className="Photo-container container">
+        <img className="Photo-image" src={image.urls.small} alt={image.alt_description}/>
+        
+        <div className="Photo-overlay">
+          <div onClick={() => this.props.savePhoto(image)} className="Photo-text">
             ADD TO FAVORITES</div>
           </div>
         </div>

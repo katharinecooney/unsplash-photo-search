@@ -13,24 +13,36 @@ class PhotoGallery extends Component {
     this.state = {
       images: [],
       searchTerm: '',
+      savedPhotos: JSON.parse(window.localStorage.getItem("savedPhotos") || "[]"),
       hasLoadedImages: false 
     }
+    this.savedPhotosCollection = new Set(this.state.savedPhotos.map(image => image.urls.small));
     this.handleSearch = this.handleSearch.bind(this);
     this.getImages = this.getImages.bind(this);
     this.scrollUp = this.scrollUp.bind(this);
+    this.savePhoto = this.savePhoto.bind(this);
+  }
+
+  componentDidMount(){
+    console.log(this.state.savedPhotos)
   }
 
   scrollUp() {
     SmoothScrolling.scrollTo("begin");
   }
 
-  componentDidMount(){
-    axios.get(`https://api.unsplash.com/search/photos?page=2&query=${this.state.searchTerm}&per_page=25`, {headers: {Authorization: 'Client-ID 282d6101c992fd476700cb4c1f429cee107dee704a8056775b945fd16126d59b'}})
-      .then(response => this.setState({
-        images: response.data.results,
-        
-      }))
+  savePhoto(newPhoto){
+    let savedPhotos = [];
+
+    if (!this.savedPhotosCollection.has(newPhoto)) {
+      savedPhotos.push(newPhoto);
+      console.log(savedPhotos)
+    }
+    this.setState(curState => ({
+      savedPhotos: [...curState.savedPhotos, newPhoto]
+    }), () => window.localStorage.setItem("savedPhotos", JSON.stringify(this.state.savedPhotos)))
   }
+
 
   handleSearch(newTerm){
     this.setState({
@@ -59,7 +71,7 @@ class PhotoGallery extends Component {
         {/* <Masonry className="PhotoGallery-container" options={{fitWidth: true}}> */}
 
           {this.state.images.map(image => 
-          <Photo key={image.id} image={image} />
+          <Photo savePhoto={this.savePhoto} key={image.id} image={image} />
           )} 
           
           {
