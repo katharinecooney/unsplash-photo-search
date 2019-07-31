@@ -27,19 +27,22 @@ class PhotoGallery extends Component {
     this.deleteSavedPhoto = this.deleteSavedPhoto.bind(this);
   }
 
+  componentDidMount(){
+    console.log(this.state.savedPhotos)
+  }
+
   scrollUp() {
     SmoothScrolling.scrollTo("begin");
   }
 
   savePhoto(newPhoto){
-    let savedPhotos = [];
-    if (!this.savedPhotosCollection.has(newPhoto)) {
-      savedPhotos.push(newPhoto);
-      console.log(savedPhotos)
+    console.log('new photo is ', newPhoto)
+    if (!this.state.savedPhotos.includes(newPhoto)) {
+      this.setState(curState => ({
+        savedPhotos: [...curState.savedPhotos, newPhoto]
+      }), () => window.localStorage.setItem("savedPhotos", JSON.stringify(this.state.savedPhotos)))
     }
-    this.setState(curState => ({
-      savedPhotos: [...curState.savedPhotos, newPhoto]
-    }), () => window.localStorage.setItem("savedPhotos", JSON.stringify(this.state.savedPhotos)))
+    
   }
 
   handleSearch(newTerm){
