@@ -39,7 +39,7 @@ class Photo extends Component {
           (<div onClick={() => this.props.savePhoto(image)} className="Photo-text">
             ADD TO FAVORITES</div>) 
             : 
-            (<div onClick={() => this.props.savePhoto(image)} className="Photo-text">
+            (<div onClick={() => this.props.deletePhoto(image.id)} className="Photo-text">
             DELETE</div>)} 
           
           </div>

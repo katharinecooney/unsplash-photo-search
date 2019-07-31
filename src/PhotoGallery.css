@@ -11,9 +11,8 @@
 }
 
 .PhotoGallery-title {
-	background: #941026;  /* fallback for old browsers */
-	background: -webkit-linear-gradient(to right, #240b36, #941026);  /* Chrome 10-25, Safari 5.1-6 */
-	background: linear-gradient(to right, #240b36e3, #941026e3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	background: #000000; 
+
 	padding-bottom: 30px; 
 	margin-bottom: 20px;
 	border-radius: 0 0 10% 10%;

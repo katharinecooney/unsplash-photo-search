@@ -12,6 +12,7 @@
   display: block;
   width: 100%;
   height: auto;
+  margin: 20px 0;
 }
 
 .Photo-overlay {
@@ -24,7 +25,7 @@
   width: 100%;
   opacity: 0;
   transition: .5s ease;
-  background-color: #008CBA;
+  background-color: rgba(0, 5, 7, 0.604);
 }
 
 .Photo-text {
@@ -37,4 +38,26 @@
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   text-align: center;
+}
+
+@media (min-width: 700px) {
+  .Photo-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .Photo-image {
+    width: 40%;
+  }
+
+  .Photo-overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: auto;
+    width: 40%;
+    
+  }
 }

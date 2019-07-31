@@ -14,6 +14,7 @@ class PhotoGallery extends Component {
       hasUserSearched: false,
       searchTerm: '',
       savedPhotos: JSON.parse(window.localStorage.getItem("savedPhotos") || "[]"),
+      numSavedPhotos: 0,
       hasLoadedImages: false,
       requestedSavedPhotos: false
     }
@@ -23,6 +24,7 @@ class PhotoGallery extends Component {
     this.scrollUp = this.scrollUp.bind(this);
     this.savePhoto = this.savePhoto.bind(this);
     this.retrieveSavedPhotos = this.retrieveSavedPhotos.bind(this);
+    this.deleteSavedPhoto = this.deleteSavedPhoto.bind(this);
   }
 
   scrollUp() {
@@ -63,12 +65,23 @@ class PhotoGallery extends Component {
     })
   }
 
+  deleteSavedPhoto(id){
+    console.log(id);
+    this.setState(curState => ({
+      savedPhotos: curState.savedPhotos.filter(image => image.id !== id)
+    }), 
+    () => window.localStorage.setItem("savedPhotos", JSON.stringify(this.state.savedPhotos))
+    )
+  }
+
   render() {
-    let displaySavedPhotos = (this.state.savedPhotos.map(image => <Photo saved={this.savedPhotosCollection.has(image.urls.small)} key={image.id} image={image} />))
+    console.log(this.state.savedPhotos)
+    let displaySavedPhotos = (this.state.savedPhotos.map(image => <Photo deletePhoto={this.deleteSavedPhoto} saved={this.savedPhotosCollection.has(image.urls.small)} key={image.id} image={image} />))
     let displaySearchedPhotos = (this.state.images.map(image => 
       <Photo saved={this.savedPhotosCollection.has(image.urls.small)} savePhoto={this.savePhoto} key={image.id} image={image} />
       ))
     let noPhotosSearched = (<span>Search for a photo!</span>)
+    
     return (
       <div className="PhotoGallery" id="begin">
         
