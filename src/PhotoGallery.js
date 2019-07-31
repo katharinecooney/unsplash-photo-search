@@ -18,7 +18,6 @@ class PhotoGallery extends Component {
       hasLoadedImages: false,
       requestedSavedPhotos: false
     }
-    this.savedPhotosCollection = new Set(this.state.savedPhotos.map(image => image.urls.small));
     this.handleSearch = this.handleSearch.bind(this);
     this.getImages = this.getImages.bind(this);
     this.scrollUp = this.scrollUp.bind(this);
@@ -41,8 +40,7 @@ class PhotoGallery extends Component {
       this.setState(curState => ({
         savedPhotos: [...curState.savedPhotos, newPhoto]
       }), () => window.localStorage.setItem("savedPhotos", JSON.stringify(this.state.savedPhotos)))
-    }
-    
+    } 
   }
 
   handleSearch(newTerm){
@@ -78,11 +76,13 @@ class PhotoGallery extends Component {
   }
 
   render() {
-    console.log(this.state.savedPhotos)
-    let displaySavedPhotos = (this.state.savedPhotos.map(image => <Photo deletePhoto={this.deleteSavedPhoto} saved={this.savedPhotosCollection.has(image.urls.small)} key={image.id} image={image} />))
+    
+    let displaySavedPhotos = (this.state.savedPhotos.map(image => <Photo deletePhoto={this.deleteSavedPhoto} saved={this.state.savedPhotos.includes(image)} key={image.id} image={image} />))
+   
     let displaySearchedPhotos = (this.state.images.map(image => 
-      <Photo saved={this.savedPhotosCollection.has(image.urls.small)} savePhoto={this.savePhoto} key={image.id} image={image} />
+      <Photo saved={this.state.savedPhotos.includes(image)} savePhoto={this.savePhoto} key={image.id} image={image} />
       ))
+   
     let noPhotosSearched = (<span>Search for a photo!</span>)
     
     return (
