@@ -99,17 +99,22 @@ class PhotoGallery extends Component {
         </div>
 
         <button onClick={this.retrieveSavedPhotos}>Get saved photos</button>
-        {
-          !this.state.hasUserSearched && noPhotosSearched
-        }
 
-        {
-          this.state.requestedSavedPhotos && displaySavedPhotos
-        }
+        <div className="PhotoGallery-container">
+          {/* {
+            !this.state.hasUserSearched && noPhotosSearched
+          } */}
 
-        {
-          !this.state.requestedSavedPhotos && displaySearchedPhotos
-        } 
+          {
+            this.state.requestedSavedPhotos && displaySavedPhotos
+          }
+
+          {
+            !this.state.requestedSavedPhotos && displaySearchedPhotos
+          }
+        </div>
+
+         
           
           {
           this.state.hasLoadedImages && 
@@ -120,7 +125,6 @@ class PhotoGallery extends Component {
           </div>
           } 
           
-        {/* </Masonry> */}
       </div>
     )
   }

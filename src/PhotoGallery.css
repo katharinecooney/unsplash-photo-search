@@ -1,5 +1,7 @@
 .PhotoGallery-container {
-	width: 100vw;
+  width: 100vw;
+  display: flex;
+  flex-flow: row wrap;
 }
 
 .PhotoGallery h1 {

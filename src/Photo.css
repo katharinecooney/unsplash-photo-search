@@ -2,6 +2,7 @@
   position: relative;
   width: 90%;
   margin: 0 auto;
+  display: inline-block;
 }
 
 .Photo-container:hover .Photo-overlay {
@@ -11,7 +12,6 @@
 .Photo-image {
   display: block;
   width: 100%;
-  height: auto;
   margin: 20px 0;
 }
 
@@ -40,24 +40,23 @@
   text-align: center;
 }
 
-@media (min-width: 700px) {
+@media (min-width: 567px){
   .Photo-container {
-    display: flex;
-    flex-wrap: wrap;
+    width: 45%;
+    height: 450px;
+    margin: 20px auto;
   }
-
   .Photo-image {
-    width: 40%;
+    height: 450px;
   }
-
   .Photo-overlay {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: auto;
-    width: 40%;
-    
+    height: 450px;
+    margin: 20px auto;
+  }
+}
+
+@media (min-width: 992px){
+  .Photo-container {
+    width: 30%;
   }
 }
