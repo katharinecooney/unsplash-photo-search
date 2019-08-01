@@ -14,7 +14,7 @@ class PhotoGallery extends Component {
       hasUserSearched: false,
       searchTerm: '',
       savedPhotos: JSON.parse(window.localStorage.getItem("savedPhotos") || "[]"),
-      savedPhotoIDs: [],
+      savedPhotoIDs: JSON.parse(window.localStorage.getItem("savedPhotoIDs") || "[]"),
       numSavedPhotos: 0,
       hasLoadedImages: false,
       requestedSavedPhotos: false
@@ -42,7 +42,8 @@ class PhotoGallery extends Component {
       this.setState(curState => ({
         savedPhotos: [...curState.savedPhotos, newPhoto],
         savedPhotoIDs: [...curState.savedPhotoIDs, newPhoto.id]
-      }), () => window.localStorage.setItem("savedPhotos", JSON.stringify(this.state.savedPhotos)))
+      }), 
+      () =>{ window.localStorage.setItem("savedPhotos", JSON.stringify(this.state.savedPhotos)); window.localStorage.setItem("savedPhotoIDs", JSON.stringify(this.state.savedPhotoIDs)) })
     }
     console.log(this.state.savedPhotoIDs); 
   }
