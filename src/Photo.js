@@ -35,13 +35,18 @@ class Photo extends Component {
         
         <div className="Photo-overlay">
           
-          {!this.props.saved ? 
+          {(!this.props.saved && this.props.location === "mainPage") ? 
           (<div onClick={() => this.props.savePhoto(image)} className="Photo-text">
-            ADD TO FAVORITES</div>) 
+            ADD TO FAVORITES
+            <i class="far fa-heart fa-4x"></i> 
+            
+            </div>) 
             : 
             (<div onClick={() => this.props.deletePhoto(image.id)} className="Photo-text">
-            DELETE</div>)} 
-          
+            REMOVE FROM FAVORITES
+            <i class="far fa-trash-alt fa-4x"></i>
+            </div>)} 
+            
           </div>
         </div>
         

@@ -14,6 +14,7 @@ class PhotoGallery extends Component {
       hasUserSearched: false,
       searchTerm: '',
       savedPhotos: JSON.parse(window.localStorage.getItem("savedPhotos") || "[]"),
+      savedPhotoIDs: [],
       numSavedPhotos: 0,
       hasLoadedImages: false,
       requestedSavedPhotos: false
@@ -35,10 +36,12 @@ class PhotoGallery extends Component {
   }
 
   savePhoto(newPhoto){
-    console.log('new photo is ', newPhoto)
-    if (!this.state.savedPhotos.includes(newPhoto)) {
+    console.log('new photo is ', newPhoto.id)
+    console.log(this.state.savedPhotos.includes(newPhoto.id))
+    if (!this.state.savedPhotoIDs.includes(newPhoto.id)) {
       this.setState(curState => ({
-        savedPhotos: [...curState.savedPhotos, newPhoto]
+        savedPhotos: [...curState.savedPhotos, newPhoto],
+        savedPhotoIDs: [...curState.savedPhotoIDs, newPhoto.id]
       }), () => window.localStorage.setItem("savedPhotos", JSON.stringify(this.state.savedPhotos)))
     } 
   }
@@ -77,10 +80,10 @@ class PhotoGallery extends Component {
 
   render() {
     
-    let displaySavedPhotos = (this.state.savedPhotos.map(image => <Photo deletePhoto={this.deleteSavedPhoto} saved={this.state.savedPhotos.includes(image)} key={image.id} image={image} />))
+    let displaySavedPhotos = (this.state.savedPhotos.map(image => <Photo location="savedPage" deletePhoto={this.deleteSavedPhoto} saved={this.state.savedPhotoIDs.includes(image.id)} key={image.id} image={image} />))
    
     let displaySearchedPhotos = (this.state.images.map(image => 
-      <Photo saved={this.state.savedPhotos.includes(image)} savePhoto={this.savePhoto} key={image.id} image={image} />
+      <Photo location="mainPage" saved={this.state.savedPhotoIDs.includes(image.id)} savePhoto={this.savePhoto} key={image.id} image={image} />
       ))
    
     let noPhotosSearched = (<span>Search for a photo!</span>)
