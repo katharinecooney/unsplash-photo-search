@@ -1,7 +1,7 @@
 .Photo-container {
   position: relative;
-  width: 90%;
-  margin: 20px auto;
+  width: 92%;
+  margin: 10px auto;
   display: inline-block;
 }
 
@@ -41,9 +41,9 @@
 
 @media (min-width: 700px){
   .Photo-container {
-    width: 45%;
+    width: 46%;
     height: 450px;
-    margin: 20px auto;
+    margin: 10px auto;
   }
   .Photo-image {
     height: 450px;
@@ -55,9 +55,9 @@
 
 @media (min-width: 992px){
   .Photo-container {
-    width: 30%;
+    width: 31%;
     height: 375px;
-    margin: 20px auto;
+    margin: 10px auto;
   }
   .Photo-image {
     height: 375px;
