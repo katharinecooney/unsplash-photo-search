@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/unsplash-photo-search/static/css/main.1396c407.chunk.css",
+    "main.js": "/unsplash-photo-search/static/js/main.31d5ed19.chunk.js",
+    "main.js.map": "/unsplash-photo-search/static/js/main.31d5ed19.chunk.js.map",
+    "runtime~main.js": "/unsplash-photo-search/static/js/runtime~main.0b9f6053.js",
+    "runtime~main.js.map": "/unsplash-photo-search/static/js/runtime~main.0b9f6053.js.map",
+    "static/js/2.3f36617f.chunk.js": "/unsplash-photo-search/static/js/2.3f36617f.chunk.js",
+    "static/js/2.3f36617f.chunk.js.map": "/unsplash-photo-search/static/js/2.3f36617f.chunk.js.map",
+    "index.html": "/unsplash-photo-search/index.html",
+    "precache-manifest.8007d8ed7ffd7f46ee1d7e030082e2e3.js": "/unsplash-photo-search/precache-manifest.8007d8ed7ffd7f46ee1d7e030082e2e3.js",
+    "service-worker.js": "/unsplash-photo-search/service-worker.js",
+    "static/css/main.1396c407.chunk.css.map": "/unsplash-photo-search/static/css/main.1396c407.chunk.css.map",
+    "static/media/loupe.png": "/unsplash-photo-search/static/media/loupe.07353298.png"
+  }
+}
