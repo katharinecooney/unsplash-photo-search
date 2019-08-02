@@ -89,22 +89,18 @@ class PhotoGallery extends Component {
       <Photo location="mainPage" saved={this.state.savedPhotoIDs.includes(image.id)} deletePhoto={this.deleteSavedPhoto} savePhoto={this.savePhoto} key={image.id} image={image} />
       ))
    
-    let noPhotosSearched = (<span>Search for a photo!</span>)
-    
     return (
       <div className="PhotoGallery" id="begin">
         
         <div className="PhotoGallery-title">
           <h1 id="top">Photo Gallery</h1>
           <SearchBar handleSearch={this.handleSearch}/>
+          <span className="PhotoGallery-savedButton" onClick={this.retrieveSavedPhotos}>Get saved photos</span>
         </div>
 
-        <button onClick={this.retrieveSavedPhotos}>Get saved photos</button>
+        
 
         <div className="PhotoGallery-container">
-          {/* {
-            !this.state.hasUserSearched && noPhotosSearched
-          } */}
 
           {
             this.state.requestedSavedPhotos && displaySavedPhotos

@@ -17,12 +17,24 @@
 	padding-bottom: 30px; 
 	margin-bottom: 20px;
   border-radius: 0 0 10% 10%;
-  /* background: linear-gradient(
-    135deg,
-    rgba(179, 229, 252, 1) 0%,
-    rgba(179, 229, 252, 1) 50%,
-    rgba(240, 98, 146, 1) 50%,
-    rgba(240, 98, 146, 1) 100% */
+}
+
+.PhotoGallery-savedButton {
+  font-size: 1.5rem;
+  color: white;
+  background-color: transparent;
+  border: none;
+  text-transform: uppercase;
+  transition: all .5s;
+  margin-top: 20px;
+  padding-bottom: 5px;
+  display: inline-block;
+  box-sizing: border-box;
+  border-bottom: 1px solid black;
+}
+
+.PhotoGallery-savedButton:hover {
+  border-bottom: 1px solid white;
 }
 
 .PhotoGallery-scroll {
