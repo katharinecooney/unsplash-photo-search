@@ -95,7 +95,7 @@ class PhotoGallery extends Component {
         <div className="PhotoGallery-title">
           <h1 id="top">Photo Gallery</h1>
           <SearchBar handleSearch={this.handleSearch}/>
-          <span className="PhotoGallery-savedButton" onClick={this.retrieveSavedPhotos}>Get saved photos</span>
+          <span className="PhotoGallery-savedButton" onClick={this.retrieveSavedPhotos}>View saved photos</span>
         </div>
 
         

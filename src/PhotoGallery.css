@@ -1,5 +1,5 @@
 .PhotoGallery-container {
-  width: 100vw;
+  width: 98vw;
   display: flex;
   flex-flow: row wrap;
 }
@@ -20,17 +20,17 @@
 }
 
 .PhotoGallery-savedButton {
-  font-size: 1.5rem;
+  display: inline-block;
+  font-size: 1.25rem;
+  letter-spacing: 2px;
   color: white;
   background-color: transparent;
   border: none;
   text-transform: uppercase;
-  transition: all .5s;
   margin-top: 20px;
   padding-bottom: 5px;
-  display: inline-block;
-  box-sizing: border-box;
   border-bottom: 1px solid black;
+  transition: all .5s;
 }
 
 .PhotoGallery-savedButton:hover {

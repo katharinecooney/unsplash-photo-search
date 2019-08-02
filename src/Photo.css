@@ -1,7 +1,7 @@
 .Photo-container {
   position: relative;
   width: 90%;
-  margin: 0 auto;
+  margin: 20px auto;
   display: inline-block;
 }
 
@@ -12,7 +12,6 @@
 .Photo-image {
   display: block;
   width: 100%;
-  margin: 20px 0;
 }
 
 .Photo-overlay {
@@ -40,7 +39,7 @@
   text-align: center;
 }
 
-@media (min-width: 567px){
+@media (min-width: 700px){
   .Photo-container {
     width: 45%;
     height: 450px;
@@ -51,12 +50,19 @@
   }
   .Photo-overlay {
     height: 450px;
-    margin: 20px auto;
   }
 }
 
 @media (min-width: 992px){
   .Photo-container {
     width: 30%;
+    height: 375px;
+    margin: 20px auto;
+  }
+  .Photo-image {
+    height: 375px;
+  }
+  .Photo-overlay {
+    height: 375px;
   }
 }
