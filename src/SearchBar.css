@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-content: center;
-  height: 45px;
+  height: 35px;
 }
 
 .SearchBar input {
@@ -28,3 +28,12 @@
   height: 1.5rem;
   padding: .25rem;
 }
+
+/********************* MEDIA QUERIES **********************/
+
+@media (min-width: 700px){
+  .SearchBar {
+    height: 45px;
+  }
+}
+
