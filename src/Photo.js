@@ -32,9 +32,8 @@ class Photo extends Component {
     return (
       <div className="Photo-container">
         <img className="Photo-image" src={image.urls.small} alt={image.alt_description}/>
-        
-        <div className="Photo-overlay">
-          
+   
+        <div className="Photo-overlay">        
           {(!this.props.saved && this.props.location === "mainPage") ? 
           (<div onClick={() => this.props.savePhoto(image)} className="Photo-text">
             <p>ADD TO FAVORITES</p>
@@ -47,9 +46,6 @@ class Photo extends Component {
             </div>)} 
           </div>
         </div>
-        
-   
-      
     )
   }
 }
