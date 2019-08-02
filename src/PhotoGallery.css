@@ -41,24 +41,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 150px;
 }
 
 .PhotoGallery-scroll a {
   width: 300px;
-  height: 100px; 
-	border-radius: 15px;
-  padding: 15px;
   -webkit-animation: heartbeat 3.5s ease-in-out infinite both;
 	animation: heartbeat 3.5s ease-in-out infinite both;
 }
 
 .PhotoGallery-scroll img {
   width: 100px;
-  /* border: 2px solid black; */
-	border-radius: 15px;
-  padding: 15px;
-  -webkit-animation: heartbeat 3.5s ease-in-out infinite both;
-	animation: heartbeat 3.5s ease-in-out infinite both;
 }
 
 /* ----------------------------------------------
